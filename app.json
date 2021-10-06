@@ -12,13 +12,17 @@
       "description": "Please enter your MEGA.NZ Password",
       "value": "Enter your password here"
     },
+     "INDEXauthentication": {
+      "description": "Index authentication (true / false)",
+      "value": "false"
+    },
      "INDEXusername": {
       "description": "Index username (optional)",
-      "value": ""
+      "value": "mystrongindexuser"
     },
      "INDEXpassword": {
       "description": "Index Password (optional)",
-      "value": ""
+      "value": "mystrongindexpass"
 
     }
 
