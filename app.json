@@ -1,0 +1,30 @@
+{
+  "name": "heroku-rclone-serve",
+  "description": "A rclone serve index using Docker.",
+  "logo": "https://forum.rclone.org/uploads/default/original/2X/0/0f430bb0f2f7a9ed020a9e93c89f4d332adcac4b.gif",
+  "keywords": ["nginx", "docker", "rclone", "index"],
+  "env": {
+     "MEGAusername": {
+      "description": "Please enter Your MEGA.NZ Username/Email",
+      "value": "Enter username/email here"
+    },
+     "MEGApassword": {
+      "description": "Please enter your MEGA.NZ Password",
+      "value": "Enter your password here"
+    },
+     "INDEXusername": {
+      "description": "Index username (optional)",
+      "value": ""
+    },
+     "INDEXpassword": {
+      "description": "Index Password (optional)",
+      "value": ""
+
+    }
+
+
+  },
+  "website": "",
+  "repository": "",
+  "stack": "container"
+ }
