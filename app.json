@@ -12,7 +12,7 @@
       "description": "Please enter your MEGA.NZ Password",
       "value": "Enter your password here"
     },
-     "INDEXauthentication": {
+     "indexauthentication": {
       "description": "Index authentication (true / false)",
       "value": "false"
     },
