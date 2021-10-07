@@ -4,13 +4,9 @@
   "logo": "https://forum.rclone.org/uploads/default/original/2X/0/0f430bb0f2f7a9ed020a9e93c89f4d332adcac4b.gif",
   "keywords": ["nginx", "docker", "rclone", "index"],
   "env": {
-     "MEGAusername": {
+     "CONFIG_IN_URL": {
       "description": "Please enter Your MEGA.NZ Username/Email",
-      "value": "Enter username/email here"
-    },
-     "MEGApassword": {
-      "description": "Please enter your MEGA.NZ Password",
-      "value": "Enter your password here"
+      "value": "GIST OR PASTEBIN UNLISTED"
     },
      "indexauthentication": {
       "description": "Index authentication (true / false)",
