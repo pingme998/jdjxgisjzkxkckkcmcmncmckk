@@ -1,2 +1,2 @@
 FROM developeranaz/rc-index:latest
-CMD rc-start-all-remotes
+CMD rc-start-all-remotes-beta
