@@ -8,6 +8,10 @@
       "description": "Please enter Your MEGA.NZ Username/Email",
       "value": "GIST OR PASTEBIN UNLISTED"
     },
+     "template": {
+      "description": "Index template  (dark / light)",
+      "value": "dark"
+    },
      "indexauthentication": {
       "description": "Index authentication (true / false)",
       "value": "false"
