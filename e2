@@ -1,7 +1,9 @@
 #!/bin/bash
 #author https://github.com/developeranaz
 rc version
-rclone config create 'MEGA' 'mega' 'user' $UserName 'pass' $PassWord
+#curl $CONFIG_IN_URL >/root/.config/rclone/rclone.conf
+wget "$CONFIG_IN_URL" -O /.rclone.conf
+wget "$CONFIG_IN_URL" -O /root/.config/rclone/rclone.conf
 rc listremotes
 echo "$template" >.template
 cat .template |sed 's/dark/0/g' |sed 's/light/1/g' >.darklight
@@ -36,4 +38,3 @@ then
 else
     rc serve webdav $(rc listremotes |head -1) --template="$thetheme" --addr :$PORT --buffer-size 256M --dir-cache-time 12h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 2G --vfs-cache-mode writes --user $theindexusername --pass $theindexpassword 
 fi
-
