@@ -29,18 +29,16 @@ else
     theindexusername="$INDEXusername"
 fi
 #next
-echo "$inde" >.yesno
-cat .yesno |sed 's/false/0/g' |sed 's/true/1/g' >.auth
-if [ $(cat .auth) -eq 0 ]
+echo "$webdav" >.yesno1
+cat .yesno1 |sed 's/false/0/g' |sed 's/true/1/g' >.auth1
+if [ $(cat .auth1) -eq 0 ]
 then
-    echo "no password, hence unautheticated index"
-    theindexpassword=''
-    theindexusername=''
+    rc rcd --rc-serve --rc-addr=0.0.0.0:$PORT --rc-pass="$theindexpassword" --rc-user="$theindexusername" --rc-template="$thetheme"
+ 
 else
-    echo "oh! password, hence authenticated index"
-    theindexpassword="$INDEXpassword"
-    theindexusername="$INDEXusername"
+    rc webdav 
 fi
 
 
 rc rcd --rc-serve --rc-addr=0.0.0.0:$PORT --rc-pass="$theindexpassword" --rc-user="$theindexusername" --rc-template="$thetheme"
+
