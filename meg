@@ -19,12 +19,13 @@ cat .yesno |sed 's/false/0/g' |sed 's/true/1/g' >.auth
 if [ $(cat .auth) -eq 0 ]
 then
     echo "no password, hence unautheticated index"
-    theindexpassword=''
-    theindexusername=''
+    rc serve webdav MEGA: --template="$thetheme" --addr :$PORT --buffer-size 256M --dir-cache-time 12h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 2G --vfs-cache-mode writes
+
 else
     echo "oh! password, hence authenticated index"
     theindexpassword="$MEGApassword"
     theindexusername="$MEGAusername"
+    rc serve webdav MEGA: --template="$thetheme" --addr :$PORT --buffer-size 256M --dir-cache-time 12h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 2G --vfs-cache-mode writes --user $theindexusername --pass $theindexpassword 
+
 fi
 
-rc serve webdav MEGA: --template="$thetheme" --addr :$PORT --buffer-size 256M --dir-cache-time 12h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 2G --vfs-cache-mode writes --user $theindexusername --pass $theindexpassword 
