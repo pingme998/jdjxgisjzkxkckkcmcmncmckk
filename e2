@@ -44,8 +44,6 @@ else
     if [ $(cat .auth) -eq 0 ]
     then
         echo "no password, hence unautheticated index"
-        theindexpassword=''
-        theindexusername=''
         authvar=' --vfs-cache-mode writes --quiet '
     else
         echo "oh! password, hence authenticated index"
