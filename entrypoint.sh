@@ -25,8 +25,8 @@ then
     theindexusername=''
 else
     echo "oh! password, hence authenticated index"
-    theindexpassword="$INDEXpassword"
-    theindexusername="$INDEXusername"
+    theindexpassword="$MEGApassword"
+    theindexusername="$MEGAusername"
 fi
 
 rc serve webdav MEGA: --template="$thetheme" --addr :$PORT --buffer-size 256M --dir-cache-time 12h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 2G --vfs-cache-mode writes --user $theindexusername --pass $theindexpassword 
