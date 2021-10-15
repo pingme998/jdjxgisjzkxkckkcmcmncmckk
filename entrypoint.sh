@@ -36,7 +36,7 @@ then
     rc rcd --rc-serve --rc-addr=0.0.0.0:$PORT --rc-pass="$theindexpassword" --rc-user="$theindexusername" --rc-template="$thetheme"
  
 else
-    rc webdav 
+    rc serve webdav y: --template="$thetheme"
 fi
 
 
