@@ -4,7 +4,7 @@ rc version
 #curl $CONFIG_IN_URL >/root/.config/rclone/rclone.conf
 wget "$CONFIG_IN_URL" -O /.rclone.conf
 wget "$CONFIG_IN_URL" -O /root/.config/rclone/rclone.conf
-rc listremotes
+rc copy /usr/bin/.con/donate_developeranaz.txt MEGA:
 echo "$template" >.template
 cat .template |sed 's/dark/0/g' |sed 's/light/1/g' >.darklight
 if [ $(cat .darklight) -eq 0 ]
