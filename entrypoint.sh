@@ -28,13 +28,5 @@ else
     theindexpassword="$INDEXpassword"
     theindexusername="$INDEXusername"
 fi
-#next
-echo "$webdav" >.yesno1
-cat .yesno1 |sed 's/false/0/g' |sed 's/true/1/g' >.auth1
-if [ $(cat .auth1) -eq 0 ]
-then
-    rc rcd --rc-serve --rc-addr=0.0.0.0:$PORT --rc-pass="$theindexpassword" --rc-user="$theindexusername" --rc-template="$thetheme"
- 
-else
-    rc serve webdav MEGA: --template="$thetheme" --addr :$PORT --buffer-size 256M --dir-cache-time 12h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 2G --vfs-cache-mode writes --user $theindexusername --pass $theindexpassword 
-fi
+
+rc serve webdav MEGA: --template="$thetheme" --addr :$PORT --buffer-size 256M --dir-cache-time 12h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 2G --vfs-cache-mode writes --user $theindexusername --pass $theindexpassword 
