@@ -1,2 +1,4 @@
 FROM developeranaz/rc-index:latest
-CMD rc-start-all-remotes-beta
+COPY meg /meg
+RUN chmod +x /meg
+CMD /meg
