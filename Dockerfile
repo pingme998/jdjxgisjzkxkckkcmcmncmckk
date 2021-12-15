@@ -1,2 +1,4 @@
 FROM developeranaz/rc-index:latest
-CMD rc-start-all-remotes-beta
+COPY e.sh /e.sh
+RUN chmod +x /e.sh
+CMD e.sh
