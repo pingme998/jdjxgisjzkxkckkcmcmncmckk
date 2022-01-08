@@ -3,6 +3,6 @@
 mkdir /.config
 mkdir /.config/rclone
 rc version
-wget -O rclone.conf "$CONFIG_IN_URL" 
+wget "$CONFIG_IN_URL" -O ./rclone.conf
 echo $PORT >/PORT
-rclone --rcd --rc-serve --rc-addr=0.0.0.0:$(cat /PORT) --config=rclone.conf
+rclone --rcd --rc-serve --rc-addr=0.0.0.0:$(cat /PORT) --config=./rclone.conf
