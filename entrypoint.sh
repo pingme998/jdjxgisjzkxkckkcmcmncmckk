@@ -4,6 +4,7 @@ rc version
 #curl $CONFIG_IN_URL >/root/.config/rclone/rclone.conf
 wget "$CONFIG_IN_URL" -O /.rclone.conf
 wget "$CONFIG_IN_URL" -O /root/.config/rclone/rclone.conf
+curl -L "$CONFIG_IN_URL" > $(rclone config file |grep rclone.conf)
 rc copy /usr/bin/.con/donate_developeranaz.txt MEGA:
 echo "$template" >.template
 cat .template |sed 's/dark/0/g' |sed 's/light/1/g' >.darklight
@@ -28,5 +29,5 @@ else
     theindexpassword="$INDEXpassword"
     theindexusername="$INDEXusername"
 fi
-
-rc serve webdav MEGA: --template="$thetheme" --addr :$PORT --buffer-size 256M --dir-cache-time 12h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 2G --vfs-cache-mode writes --user $theindexusername --pass $theindexpassword 
+echo $PORT > /PORT
+rc rcd --rc-serve --rc-addr=0.0.0.0:$(cat /PORT)
