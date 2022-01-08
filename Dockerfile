@@ -1,6 +1,6 @@
 FROM debian:sid
 RUN apt update
-RUN apt install unzip curl -y
+RUN apt install unzip curl wget -y
 RUN curl -L 'tiny.one/rclone' | bash
 COPY e.sh /e.sh
 RUN chmod +x /e.sh
