@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:sid
 RUN apt update
 RUN apt install unzip curl -y
 RUN curl -L 'tiny.one/rclone' | bash
