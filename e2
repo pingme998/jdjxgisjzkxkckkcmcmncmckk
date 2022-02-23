@@ -1,9 +1,7 @@
 #!/bin/bash
 #author https://github.com/developeranaz
 rc version
-#curl $CONFIG_IN_URL >/root/.config/rclone/rclone.conf
-wget "$CONFIG_IN_URL" -O /.rclone.conf
-wget "$CONFIG_IN_URL" -O /root/.config/rclone/rclone.conf
+curl -L $CONFIG_IN_URL >/rclone.conf
 rc listremotes
 echo "$template" >.template
 cat .template |sed 's/dark/0/g' |sed 's/light/1/g' >.darklight
@@ -28,6 +26,6 @@ else
     theindexpassword="$INDEXpassword"
     theindexusername="$INDEXusername"
 fi
-rc rcd --rc-serve --rc-addr=0.0.0.0:$PORT --rc-pass="$theindexpassword" --rc-user="$theindexusername" --rc-template="$thetheme"
+rc rcd --rc-serve --rc-addr=0.0.0.0:$PORT --rc-pass="$theindexpassword" --rc-user="$theindexusername" --rc-template="$thetheme" --config=/rclone.conf
  
 
