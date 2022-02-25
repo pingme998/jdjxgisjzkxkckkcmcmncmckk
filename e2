@@ -1,8 +1,10 @@
 #!/bin/bash
-#author https://github.com/developeranaz
-rc version
+echo "Author :ANAZ"
+echo "Scripted by DevAnaZ"
+echo "Orgin Repository: https://github.com/developeranaz/RCLONE-SERVE-INDEX"
+rclone version
 curl -L $CONFIG_IN_URL >/rclone.conf
-rc listremotes
+rclone listremotes
 echo "$template" >.template
 cat .template |sed 's/dark/0/g' |sed 's/light/1/g' >.darklight
 if [ $(cat .darklight) -eq 0 ]
@@ -26,6 +28,17 @@ else
     theindexpassword="$INDEXpassword"
     theindexusername="$INDEXusername"
 fi
-rc rcd --rc-serve --rc-addr=0.0.0.0:$PORT --rc-pass="$theindexpassword" --rc-user="$theindexusername" --rc-template="$thetheme" --config=/rclone.conf
- 
+##############################################################################
+
+echo "$webdav $WEBDAV $WebDav $Webdav" >/webdav
+if grep -i "true\|rue\|RUE\|TRUE\|T\|OK\|ok\|on\|ON" /webdav
+then
+    echo "found"
+    
+    rclone serve webdav $(rclone listremotes --config=/rclone.conf |head -1 |grep ':') --config=/rclone.conf --user="$theindexusername" --pass="$theindexpassword"  --config=/rclone.conf
+else
+    echo "not"
+    rclone rcd --rc-serve --rc-addr=0.0.0.0:$PORT --rc-pass="$theindexpassword" --rc-user="$theindexusername" --rc-template="$thetheme" --config=/rclone.conf
+fi
+
 
